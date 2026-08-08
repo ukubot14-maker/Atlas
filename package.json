@@ -1,0 +1,12 @@
+{
+  "name": "atlas",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "powershell -ExecutionPolicy Bypass -File .\\Start-Atlas.ps1",
+    "dev:web": "npm --prefix web run dev",
+    "dev:server": "npm --prefix server run dev",
+    "build:web": "npm --prefix web run build",
+    "start:server": "npm --prefix server run start"
+  }
+}

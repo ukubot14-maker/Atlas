@@ -1,0 +1,12 @@
+{
+  "appOrigin": "http://localhost:5173",
+  "maxBodySizeBytes": 100000,
+  "adminUnlockPassword": "replace-this-admin-password",
+  "seedPasswords": {
+    "AtlasAdmin": "replace-this-owner-password",
+    "Nova": "replace-this-password",
+    "Rowan": "replace-this-password",
+    "Kai": "replace-this-password",
+    "Mika": "replace-this-password"
+  }
+}
