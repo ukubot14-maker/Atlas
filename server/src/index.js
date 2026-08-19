@@ -518,14 +518,31 @@ const setSecurityHeaders = (response) => {
   )
 }
 
+const allowedOrigins = new Set([
+  'https://ukubot14-maker.github.io',
+  'http://localhost:5173',
+  appOrigin,
+])
+
 const allowCors = (request, response) => {
   const requestOrigin = String(request.headers.origin ?? '')
-  const originToUse = requestOrigin === appOrigin ? requestOrigin : appOrigin
 
-  response.setHeader('Access-Control-Allow-Origin', originToUse)
+  if (allowedOrigins.has(requestOrigin)) {
+    response.setHeader('Access-Control-Allow-Origin', requestOrigin)
+  } else {
+    response.setHeader('Access-Control-Allow-Origin', 'https://ukubot14-maker.github.io')
+  }
+
   response.setHeader('Vary', 'Origin')
-  response.setHeader('Access-Control-Allow-Methods', 'GET,POST,DELETE,OPTIONS')
-  response.setHeader('Access-Control-Allow-Headers', 'Content-Type,X-Atlas-Session')
+  response.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET,POST,PUT,PATCH,DELETE,OPTIONS'
+  )
+  response.setHeader(
+    'Access-Control-Allow-Headers',
+    'Content-Type,X-Atlas-Session,Authorization'
+  )
+  response.setHeader('Access-Control-Allow-Credentials', 'true')
 }
 
 const applyRateLimit = (request, response, scope, options) => {
