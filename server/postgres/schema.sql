@@ -121,3 +121,4 @@ CREATE TABLE IF NOT EXISTS app_secrets (
   value TEXT NOT NULL,
   updated_at TIMESTAMPTZ NOT NULL
 );
+ 
